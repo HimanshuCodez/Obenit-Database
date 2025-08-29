@@ -55,7 +55,7 @@ const Header = () => {
         {/* CTA */}
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
         <Link
-  to="/catalog"
+  to="/pricing"
   className="hidden md:inline-flex items-center gap-2 bg-blue-600 text-white font-medium px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition"
 >
   Integrate Now
