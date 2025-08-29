@@ -9,6 +9,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import Footer from "../components/Footer";
 
 const CustomerStoriesPage = () => {
   const stories = [
@@ -140,6 +141,7 @@ const CustomerStoriesPage = () => {
             ))}
           </Swiper>
         </section>
+         <Footer />
       </main>
     </Layout>
   );
