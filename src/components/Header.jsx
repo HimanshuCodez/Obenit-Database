@@ -1,18 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Database, ArrowBigRight, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom"; // Import Link for navigation
+import { Menu, X, Database, ArrowRight, User, Settings, LogOut, HelpCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openProfile, setOpenProfile] = useState(false);
+  const dropdownRef = useRef(null);
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  // Close dropdown if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpenProfile(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   // Define your nav items with links
   const navItems = [
     { name: "Pricing", path: "/pricing" },
-    { name: "Resources", path: "/resources" },
-
-    { name: "Contact", path: "/contact" },
+    // { name: "Resources", path: "/resources" },
+    { name: "Support", path: "/contact" },
+    { name: "About", path: "/about" },
   ];
 
   return (
@@ -46,23 +60,68 @@ const Header = () => {
               >
                 {item.name}
               </Link>
-              {/* Hover underline */}
               <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
             </motion.div>
           ))}
         </nav>
 
-        {/* CTA */}
-        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-        <Link
-  to="/pricing"
-  className="hidden md:inline-flex items-center gap-2 bg-blue-600 text-white font-medium px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition"
->
-  Integrate Now
-  <ArrowRight className="w-4 h-4" />
-</Link>
+        {/* Right Actions (CTA + Profile) */}
+        <div className="flex items-center gap-4 relative">
+          {/* CTA */}
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              to="/pricing"
+              className="hidden md:inline-flex items-center gap-2 bg-blue-600 text-white font-medium px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition"
+            >
+              Integrate Now
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
 
-        </motion.div>
+          {/* Profile Dropdown */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setOpenProfile(!openProfile)}
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition"
+            >
+              <User className="w-6 h-6 text-gray-700" />
+            </button>
+
+            {openProfile && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border py-2 z-50"
+              >
+                <Link
+                  to="/profile"
+                  className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >
+                  <User className="w-4 h-4" /> Profile
+                </Link>
+                <Link
+                  to="/settings"
+                  className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >
+                  <Settings className="w-4 h-4" /> Settings
+                </Link>
+                <Link
+                  to="/help"
+                  className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >
+                  <HelpCircle className="w-4 h-4" /> Help
+                </Link>
+                <button
+                  onClick={() => console.log("Logout")}
+                  className="flex w-full items-center gap-2 px-4 py-2 text-red-600 hover:bg-gray-100"
+                >
+                  <LogOut className="w-4 h-4" /> Logout
+                </button>
+              </motion.div>
+            )}
+          </div>
+        </div>
 
         {/* Mobile Menu Button */}
         <button className="md:hidden text-gray-700" onClick={toggleMenu}>

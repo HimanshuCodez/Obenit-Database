@@ -24,7 +24,7 @@ export default function Pricing() {
     {
       name: "KVM 1",
       discount: "60% OFF",
-      price: "₹399",
+      price: "₹4,500",
       renew: "Renews at ₹739.00/mo for 2 years. Cancel anytime.",
       features: ["1 vCPU core", "4 GB RAM", "50 GB NVMe disk", "4 TB bandwidth"],
     },
@@ -32,7 +32,7 @@ export default function Pricing() {
       name: "KVM 2",
       discount: "66% OFF",
       extra: "Best deal - Limited time only",
-      price: "₹549",
+      price: "₹6,800",
       renew: "Renews at ₹999.00/mo for 2 years. Cancel anytime.",
       features: [
         "2 vCPU cores",
@@ -44,7 +44,7 @@ export default function Pricing() {
     {
       name: "KVM 4",
       discount: "71% OFF",
-      price: "₹749",
+      price: "₹10,200",
       renew: "Renews at ₹1,999.00/mo for 2 years. Cancel anytime.",
       features: [
         "4 vCPU cores",
@@ -56,7 +56,7 @@ export default function Pricing() {
     {
       name: "KVM 8",
       discount: "70% OFF",
-      price: "₹1,499",
+      price: "₹18,000",
       renew: "Renews at ₹3,999.00/mo for 2 years. Cancel anytime.",
       features: [
         "8 vCPU cores",
@@ -76,11 +76,14 @@ export default function Pricing() {
         <div className="shape absolute w-16 h-16 bottom-1/3 left-20 bg-white/10 rounded-full" />
       </div>
 
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container mt-7  mx-auto px-4 max-w-6xl">
         {/* header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg">
+          <h1 className="text-4xl md:text-5xl mb-6 font-extrabold text-white drop-shadow-lg">
             Essence Database
+          </h1>
+          <h1 className="text-4xl underline md:text-5xl font-extrabold text-white drop-shadow-lg">
+            Get Your VPS Machine Today
           </h1>
           <p className="text-lg text-white/90 max-w-2xl mx-auto mt-4">
             Powerful, scalable database solutions with enterprise-grade
@@ -106,11 +109,9 @@ export default function Pricing() {
               <h3 className="text-xl font-bold text-gray-800">{plan.name}</h3>
               <div className="text-4xl font-extrabold text-indigo-500 mt-2">
                 {plan.price}
-                <span className="text-base text-gray-500 font-medium">/mo</span>
+                <span className="text-base text-gray-500 font-medium">/Year</span>
               </div>
-              <p className="text-sm text-gray-500 mt-2 text-center">
-                {plan.renew}
-              </p>
+              
 
               <div className="mt-6 w-full">
                 {plan.features.map((f, j) => (

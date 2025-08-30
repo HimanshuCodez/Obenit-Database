@@ -9,6 +9,7 @@ import Footer from '../components/Footer';
 
 import CustomerStoriesPage from './CustomerStoriesPage';
 import DemoRequestPage from './DemoRequestPage';
+import { Link } from 'react-router-dom';
 
 const AnimatedSection = ({ children, className = "", delay = 0 }) => {
   return (
@@ -280,89 +281,7 @@ const HomePage = () => {
         </div>
       </AnimatedSection>
 
-      {/* Interactive Demo */}
-      <AnimatedSection className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-extrabold mb-6 bg-gradient-to-r from-blue-700 to-purple-700 bg-clip-text text-transparent">
-              Explore Our Databases
-            </h2>
-            <p className="text-xl text-slate-600">Preview high-quality datasets from our collection</p>
-          </div>
-
-          <div className="bg-gradient-to-br from-blue-50/50 to-purple-50/50 rounded-3xl p-10 shadow-2xl">
-            <div className="flex flex-wrap gap-4 mb-10 justify-center">
-              {Object.keys(categories).map((category) => {
-                const Icon = categories[category].icon;
-                return (
-                  <motion.button
-                    key={category}
-                    onClick={() => setActiveCategory(category)}
-                    className={`px-6 py-3 rounded-full font-semibold flex items-center gap-2 ${
-                      activeCategory === category
-                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-xl'
-                        : 'bg-white text-slate-600 hover:bg-blue-50 shadow-md hover:shadow-lg'
-                    }`}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Icon className="w-5 h-5" />
-                    {category.charAt(0).toUpperCase() + category.slice(1)}
-                  </motion.button>
-                );
-              })}
-            </div>
-
-            <motion.div
-              className="bg-white rounded-2xl p-8 shadow-xl"
-              key={activeCategory}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-            >
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="font-bold mb-4 text-blue-600 text-lg flex items-center gap-2">
-                    <Database className="w-5 h-5" /> Sample Records
-                  </h4>
-                  <div className="bg-blue-50/50 rounded-xl p-6 font-mono text-sm shadow-inner">
-                    <pre className="text-slate-700">{categories[activeCategory].sample}</pre>
-                  </div>
-                </div>
-                <div>
-                  <h4 className="font-bold mb-4 text-purple-600 text-lg flex items-center gap-2">
-                    <Star className="w-5 h-5" /> Statistics
-                  </h4>
-                  <div className="space-y-4">
-                    {Object.entries(categories[activeCategory].stats).map(([key, value], i) => (
-                      <motion.div
-                        key={key}
-                        className="flex justify-between items-center p-3 bg-blue-50/50 rounded-lg shadow-sm"
-                        whileHover={{ scale: 1.02, x: 5 }}
-                      >
-                        <span className="text-slate-600 capitalize">{key}:</span>
-                        <span className="font-semibold text-blue-700">{value}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="mt-8 p-6 bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl border-l-4 border-blue-600">
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center text-blue-700">
-                    <CheckCircle className="w-6 h-6 mr-3" />
-                    <span className="font-bold text-lg">Premium Database</span>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-3xl font-extrabold text-blue-600">${categories[activeCategory].price}</span>
-                    <p className="text-sm text-slate-500">One-time purchase</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </AnimatedSection>
+      
 <DemoRequestPage/>
       {/* CTA Section */}
       <AnimatedSection className="py-24 px-6 bg-gradient-to-br from-blue-700 via-purple-600 to-pink-600 relative overflow-hidden">
@@ -406,13 +325,13 @@ const HomePage = () => {
             ))}
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.button
+            <Link to={"/pricing"}><motion.button
               className="bg-white text-purple-600 px-8 py-4 rounded-full font-bold shadow-2xl hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
               whileHover={{ scale: 1.05, y: -2 }}
             >
               View All Databases
               <ArrowRight className="inline-block w-5 h-5 ml-2" />
-            </motion.button>
+            </motion.button></Link>
             <motion.button
               className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10"
               whileHover={{ scale: 1.05, y: -2 }}

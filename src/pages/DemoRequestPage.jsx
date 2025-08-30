@@ -14,7 +14,7 @@ const DemoRequestPage = () => {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <h1 className="text-5xl font-extrabold mb-6 leading-tight">
-                See IntegrationFlow in Action
+                See Essence in Action
               </h1>
               <p className="text-lg md:text-xl max-w-3xl mx-auto opacity-90 leading-relaxed">
                 Schedule a personalized demo tailored to your technical
@@ -23,47 +23,7 @@ const DemoRequestPage = () => {
               </p>
             </div>
 
-            {/* Demo Type Selection */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                id="technical-btn"
-                className="px-6 py-3 rounded-xl bg-white text-purple-700 font-semibold shadow-lg hover:bg-purple-50 transition"
-              >
-                Technical Deep-Dive
-                <svg
-                  className="inline-block w-5 h-5 ml-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                  />
-                </svg>
-              </button>
-              <button
-                id="executive-btn"
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-purple-700 to-indigo-700 text-white font-semibold shadow-lg hover:opacity-90 transition"
-              >
-                Executive Overview
-                <svg
-                  className="inline-block w-5 h-5 ml-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                  />
-                </svg>
-              </button>
-            </div>
+         
           </div>
         </section>
 
@@ -79,11 +39,11 @@ const DemoRequestPage = () => {
       <div className="space-y-8">
         <div>
           <h2 className="text-3xl font-bold mb-4 text-gray-800 text-center">
-            Request Your Demo
+            Contact For Enterprise
           </h2>
           <p className="text-gray-600 text-center max-w-xl mx-auto">
-            Tell us about your integration needs and we'll customize the demo to
-            show you exactly how IntegrationFlow can solve your challenges.
+            Tell us about your integration business needs and we'll customize the demo to
+            show you exactly how Essence Database can solve your challenges.
           </p>
         </div>
 
