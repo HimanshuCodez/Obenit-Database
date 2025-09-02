@@ -5,22 +5,22 @@ export default function AboutPage() {
     {
       icon: Database,
       title: "Comprehensive Storage",
-      description: "Store and organize vast amounts of essence data with intelligent categorization and advanced search capabilities."
+      description: "Store and organize vast amounts of Obenit data with intelligent categorization and advanced search capabilities."
     },
     {
       icon: Zap,
       title: "Lightning Fast",
-      description: "Optimized performance ensures instant access to your essence data, no matter how large your database grows."
+      description: "Optimized performance ensures instant access to your Obenit data, no matter how large your database grows."
     },
     {
       icon: Shield,
       title: "Secure & Private",
-      description: "Enterprise-grade security with end-to-end encryption keeps your valuable essence information protected."
+      description: "Enterprise-grade security with end-to-end encryption keeps your valuable Obenit information protected."
     },
     {
       icon: Globe,
       title: "Global Access",
-      description: "Access your essence database from anywhere in the world with our cloud-based infrastructure."
+      description: "Access your Obenit database from anywhere in the world with our cloud-based infrastructure."
     }
   ];
 
@@ -62,11 +62,11 @@ export default function AboutPage() {
             <div className="inline-flex items-center space-x-3 mb-6">
             
               <h1 className="text-6xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                Essence Database
+                Obenit Database
               </h1>
             </div>
             <p className="text-2xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Revolutionizing how we capture, store, and analyze the fundamental essence of data. 
+              Revolutionizing how we capture, store, and analyze the fundamental Obenit of data. 
               Building the future of intelligent information management.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -93,7 +93,7 @@ export default function AboutPage() {
               <h2 className="text-4xl font-bold text-white">Our Mission</h2>
             </div>
             <p className="text-xl text-white/80 mb-6 leading-relaxed">
-              We believe that every piece of data has an essence - a core identity that defines its true value and potential. 
+              We believe that every piece of data has an Obenit - a core identity that defines its true value and potential. 
               Our mission is to create the most advanced database system that doesn't just store information, but understands it.
             </p>
             <p className="text-lg text-white/70 leading-relaxed">
@@ -134,7 +134,7 @@ export default function AboutPage() {
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-white mb-4">What Makes Us Different</h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            We've reimagined database technology from the ground up, focusing on the essence of your data
+            We've reimagined database technology from the ground up, focusing on the Obenit of your data
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -183,7 +183,7 @@ export default function AboutPage() {
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-white mb-4">Meet the Team</h2>
-          <p className="text-xl text-white/80">The passionate individuals behind Essence Database</p>
+          <p className="text-xl text-white/80">The passionate individuals behind Obenit Database</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {team.map((member, index) => (

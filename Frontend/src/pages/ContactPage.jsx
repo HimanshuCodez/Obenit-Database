@@ -64,7 +64,7 @@ export default function ContactNow() {
             Contact Us
           </h1>
           <p className="text-xl text-white/80 max-w-2xl mx-auto">
-            Ready to explore the essence database? Get in touch with our team for support, partnerships, or just to say hello.
+            Ready to explore the Obenit database? Get in touch with our team for support, partnerships, or just to say hello.
           </p>
         </div>
 
@@ -186,7 +186,7 @@ export default function ContactNow() {
                   <Mail className="w-6 h-6 text-purple-400" />
                   <div>
                     <p className="text-white font-medium">Email</p>
-                    <p className="text-white/80">hello@essencedb.com</p>
+                    <p className="text-white/80">hello@Obenitdb.com</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">

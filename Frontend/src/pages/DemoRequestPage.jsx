@@ -14,7 +14,7 @@ const DemoRequestPage = () => {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <h1 className="text-5xl font-extrabold mb-6 leading-tight">
-                See Essence in Action
+                See Obenit in Action
               </h1>
               <p className="text-lg md:text-xl max-w-3xl mx-auto opacity-90 leading-relaxed">
                 Schedule a personalized demo tailored to your technical
@@ -43,7 +43,7 @@ const DemoRequestPage = () => {
           </h2>
           <p className="text-gray-600 text-center max-w-xl mx-auto">
             Tell us about your integration business needs and we'll customize the demo to
-            show you exactly how Essence Database can solve your challenges.
+            show you exactly how Obenit Database can solve your challenges.
           </p>
         </div>
 

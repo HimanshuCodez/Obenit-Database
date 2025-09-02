@@ -122,6 +122,7 @@ const HomePage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
               >
+                <Link to={"/pricing"}>
                 <motion.button
                   className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold shadow-xl hover:shadow-2xl"
                   whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)" }}
@@ -132,6 +133,7 @@ const HomePage = () => {
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </motion.button>
+                </Link>
                 <motion.button
                   className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold border-2 border-blue-200 hover:border-blue-400 shadow-lg hover:shadow-xl"
                   whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(59, 130, 246, 0.3)" }}
@@ -241,7 +243,7 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-extrabold mb-6 bg-gradient-to-r from-slate-900 to-blue-700 bg-clip-text text-transparent">
-              Why Choose Essence Database?
+              Why Choose Obenit Database?
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Unlock unparalleled value with our premium database solutions

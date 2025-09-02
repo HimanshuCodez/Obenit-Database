@@ -16,7 +16,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
-    "swiper": "^11.2.10"
+    "react-toastify": "^11.0.5",
+    "swiper": "^11.2.10",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

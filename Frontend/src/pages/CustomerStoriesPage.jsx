@@ -16,7 +16,7 @@ const CustomerStoriesPage = () => {
     {
       name: "TechNova Inc.",
       story:
-        "Essence Database helped us cut integration time by 70%. Our teams now move faster than ever!",
+        "Obenit Database helped us cut integration time by 70%. Our teams now move faster than ever!",
       image: "https://randomuser.me/api/portraits/men/32.jpg",
       company: "TechNova Inc.",
     },
@@ -30,7 +30,7 @@ const CustomerStoriesPage = () => {
     {
       name: "Skyline Systems",
       story:
-        "99.9% uptime is not just a promise – it’s our daily reality now thanks to Essence.",
+        "99.9% uptime is not just a promise – it’s our daily reality now thanks to Obenit.",
       image: "https://randomuser.me/api/portraits/men/22.jpg",
       company: "Skyline Systems",
     },
@@ -56,7 +56,7 @@ const CustomerStoriesPage = () => {
               <div className="space-y-4">
                 <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
                   Real Success Stories from{" "}
-                  <span className="text-primary">Essence Database</span>
+                  <span className="text-primary">Obenit Database</span>
                 </h1>
                 <p className="text-xl text-text-secondary leading-relaxed max-w-3xl mx-auto">
                   Discover how leading enterprises transformed their integration

@@ -24,12 +24,19 @@ export default function Pricing() {
     {
       name: "KVM 1",
       discount: "60% OFF",
+      price: "₹2,800",
+      renew: "Renews at ₹739.00/mo for 2 years. Cancel anytime.",
+      features: ["1 vCPU core", "2 GB RAM", "20 GB NVMe disk", "2 TB bandwidth"],
+    },
+    {
+      name: "KVM 2",
+      discount: "60% OFF",
       price: "₹4,500",
       renew: "Renews at ₹739.00/mo for 2 years. Cancel anytime.",
       features: ["1 vCPU core", "4 GB RAM", "50 GB NVMe disk", "4 TB bandwidth"],
     },
     {
-      name: "KVM 2",
+      name: "KVM 3",
       discount: "66% OFF",
       extra: "Best deal - Limited time only",
       price: "₹6,800",
@@ -48,15 +55,27 @@ export default function Pricing() {
       renew: "Renews at ₹1,999.00/mo for 2 years. Cancel anytime.",
       features: [
         "4 vCPU cores",
-        "16 GB RAM",
+        "12 GB RAM",
         "200 GB NVMe disk",
-        "16 TB bandwidth",
+        "10 TB bandwidth",
       ],
     },
     {
-      name: "KVM 8",
-      discount: "70% OFF",
+      name: "KVM 5",
+      discount: "75% OFF",
       price: "₹18,000",
+      renew: "Renews at ₹1,999.00/mo for 2 years. Cancel anytime.",
+      features: [
+        "4 vCPU cores",
+        "16 GB RAM",
+        "200 GB NVMe disk",
+        "12 TB bandwidth",
+      ],
+    },
+    {
+      name: "KVM 10",
+      discount: "78% OFF",
+      price: "₹28,000",
       renew: "Renews at ₹3,999.00/mo for 2 years. Cancel anytime.",
       features: [
         "8 vCPU cores",
@@ -65,10 +84,34 @@ export default function Pricing() {
         "32 TB bandwidth",
       ],
     },
+    {
+      name: "KVM 12",
+      discount: "82% OFF",
+      price: "₹38,000",
+      renew: "Renews at ₹3,999.00/mo for 2 years. Cancel anytime.",
+      features: [
+        "12 vCPU cores",
+        "32 GB RAM",
+        "400 GB NVMe disk",
+        "32 TB bandwidth",
+      ],
+    },
+    {
+      name: "KVM 14",
+      discount: "88% OFF",
+      price: "₹45,000",
+      renew: "Renews at ₹3,999.00/mo for 2 years. Cancel anytime.",
+      features: [
+        "14 vCPU cores",
+        "32 GB RAM",
+        "600 GB NVMe disk",
+        "32 TB bandwidth",
+      ],
+    },
   ];
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-indigo-400 to-purple-600 py-10">
+    <div className="relative min-h-screen bg-gradient-to-br from-indigo-400 mt-4 to-purple-600 py-10">
       {/* floating shapes */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none -z-10">
         <div className="shape absolute w-20 h-20 top-1/5 left-10 bg-white/10 rounded-full" />
@@ -80,7 +123,7 @@ export default function Pricing() {
         {/* header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl mb-6 font-extrabold text-white drop-shadow-lg">
-            Essence Database
+            Obenit Database
           </h1>
           <h1 className="text-4xl underline md:text-5xl font-extrabold text-white drop-shadow-lg">
             Get Your VPS Machine Today

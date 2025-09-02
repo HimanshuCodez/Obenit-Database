@@ -17,7 +17,8 @@ const Footer = () => {
                 <path d="M16 2L26 8v16l-10 6L6 24V8l10-6zm0 4L8 10v12l8 4.5 8-4.5V10L16 6z" />
                 <circle cx="16" cy="16" r="3" />
               </svg>
-              <span className="text-xl font-bold">Essence Database</span>
+              <span className="text-xl font-bold">
+Obenit Database</span>
             </div>
             <p className="text-gray-400 text-sm">
               Enterprise integration platform that makes complex system
@@ -172,7 +173,7 @@ const Footer = () => {
         {/* Bottom Footer */}
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © 2025 Essence Database. All Rights Reserved.
+            © 2025 Obenit Database. All Rights Reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link

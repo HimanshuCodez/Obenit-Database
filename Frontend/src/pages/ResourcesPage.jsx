@@ -22,7 +22,7 @@ export default function ResourcesPage() {
     {
       id: 1,
       title: "Getting Started Guide",
-      description: "Complete beginner's guide to setting up your first essence database with step-by-step instructions.",
+      description: "Complete beginner's guide to setting up your first Obenit database with step-by-step instructions.",
       category: "documentation",
       type: "Guide",
       duration: "15 min read",
@@ -48,7 +48,7 @@ export default function ResourcesPage() {
     {
       id: 3,
       title: "Building Your First Query",
-      description: "Learn how to create powerful essence queries with real-world examples and best practices.",
+      description: "Learn how to create powerful Obenit queries with real-world examples and best practices.",
       category: "tutorials",
       type: "Video Tutorial",
       duration: "12 min",
@@ -61,7 +61,7 @@ export default function ResourcesPage() {
     {
       id: 4,
       title: "Python SDK",
-      description: "Official Python SDK for Essence Database with full support for async operations and data streaming.",
+      description: "Official Python SDK for Obenit Database with full support for async operations and data streaming.",
       category: "tools",
       type: "SDK",
       duration: "Download",
@@ -74,7 +74,7 @@ export default function ResourcesPage() {
     {
       id: 5,
       title: "Data Migration Toolkit",
-      description: "Powerful tools to migrate your existing databases to Essence Database format with zero downtime.",
+      description: "Powerful tools to migrate your existing databases to Obenit Database format with zero downtime.",
       category: "tools",
       type: "Tool",
       duration: "Setup Guide",
@@ -87,7 +87,7 @@ export default function ResourcesPage() {
     {
       id: 6,
       title: "Advanced Analytics Workshop",
-      description: "Deep dive into essence analytics, pattern recognition, and predictive modeling techniques.",
+      description: "Deep dive into Obenit analytics, pattern recognition, and predictive modeling techniques.",
       category: "tutorials",
       type: "Workshop",
       duration: "45 min",
@@ -108,7 +108,7 @@ export default function ResourcesPage() {
 
   const featuredDownloads = [
     {
-      name: "Essence Database Desktop",
+      name: "Obenit Database Desktop",
       version: "v2.1.0",
       size: "45 MB",
       platform: "Windows, macOS, Linux",
@@ -158,7 +158,7 @@ export default function ResourcesPage() {
               Resources Hub
             </h1>
             <p className="text-2xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Everything you need to master Essence Database. From getting started guides to advanced tutorials,
+              Everything you need to master Obenit Database. From getting started guides to advanced tutorials,
               we've got you covered on your journey.
             </p>
             
