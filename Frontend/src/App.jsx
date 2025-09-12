@@ -11,7 +11,11 @@ import Header from './components/Header';
 import AboutPage from './pages/About';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
+import Pay from './pages/Pay';
+import Success from './pages/Success';
+import Failure from './pages/Failure';
 import useAuthStore from './store/authStore';
+import ObenitAdminDashboard from './Admin/Dashboard';
 
 function App() {
   const checkAuth = useAuthStore((state) => state.checkAuth);
@@ -44,6 +48,10 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/resources" element={<ResourcesPage />} />
+        <Route path="/pay" element={<Pay />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/failure" element={<Failure />} />
+        <Route path="/Admin" element={<ObenitAdminDashboard />} />
       </Routes>
     </Router>
   );

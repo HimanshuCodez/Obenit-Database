@@ -1,30 +1,25 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Pricing() {
-  useEffect(() => {
-    // Floating shapes effect
-    const handleMouseMove = (e) => {
-      const shapes = document.querySelectorAll(".shape");
-      const x = e.clientX / window.innerWidth;
-      const y = e.clientY / window.innerHeight;
+  const navigate = useNavigate();
 
-      shapes.forEach((shape, index) => {
-        const speed = (index + 1) * 0.5;
-        const xMove = (x - 0.5) * speed * 20;
-        const yMove = (y - 0.5) * speed * 20;
-        shape.style.transform = `translate(${xMove}px, ${yMove}px)`;
-      });
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-    return () => document.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  const handleChoosePlan = (plan) => {
+    navigate('/pay', { state: { plan } });
+  };
 
   const plans = [
     {
+      name: "KVM Stater",
+      discount: "30% OFF",
+      price: "₹1,599",
+      renew: "Renews at ₹739.00/mo for 2 years. Cancel anytime.",
+      features: ["1 vCPU core", "1 GB RAM", "10 GB NVMe disk", "2 TB bandwidth"],
+    },
+    {
       name: "KVM 1",
       discount: "60% OFF",
-      price: "₹2,800",
+      price: "₹2,799",
       renew: "Renews at ₹739.00/mo for 2 years. Cancel anytime.",
       features: ["1 vCPU core", "2 GB RAM", "20 GB NVMe disk", "2 TB bandwidth"],
     },
@@ -96,18 +91,7 @@ export default function Pricing() {
         "32 TB bandwidth",
       ],
     },
-    {
-      name: "KVM 14",
-      discount: "88% OFF",
-      price: "₹45,000",
-      renew: "Renews at ₹3,999.00/mo for 2 years. Cancel anytime.",
-      features: [
-        "14 vCPU cores",
-        "32 GB RAM",
-        "600 GB NVMe disk",
-        "32 TB bandwidth",
-      ],
-    },
+   
   ];
 
   return (
@@ -167,7 +151,9 @@ export default function Pricing() {
                 ))}
               </div>
 
-              <button className="mt-6 w-full py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold shadow-lg hover:shadow-xl hover:-translate-y-1 transition">
+              <button 
+              onClick={() => handleChoosePlan(plan)}
+              className="mt-6 w-full py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold shadow-lg hover:shadow-xl hover:-translate-y-1 transition">
                 Choose Plan
               </button>
             </div>
