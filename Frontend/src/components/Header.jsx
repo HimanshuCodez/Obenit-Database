@@ -8,7 +8,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
   const dropdownRef = useRef(null);
-  const { user, logout, loading } = useAuthStore();
+  const { isAuthenticated, logout, loading } = useAuthStore();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -76,7 +76,7 @@ const Header = () => {
         <div className="flex items-center gap-4 relative">
           {loading ? (
             <div>Loading...</div> // Or a skeleton loader
-          ) : user ? (
+          ) : isAuthenticated ? (
             <>
               {/* CTA */}
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -176,7 +176,7 @@ const Header = () => {
             ))}
             {loading ? (
               <div>Loading...</div> // Or a skeleton loader
-            ) : user ? (
+            ) : isAuthenticated ? (
               <Link
                 to="/pricing"
                 className="bg-blue-600 text-white font-medium px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition"

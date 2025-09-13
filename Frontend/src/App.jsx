@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import HomePage from './pages/HomePage';
@@ -14,18 +14,11 @@ import Login from './pages/Login';
 import Pay from './pages/Pay';
 import Success from './pages/Success';
 import Failure from './pages/Failure';
-import useAuthStore from './store/authStore';
 import ObenitAdminDashboard from './Admin/Dashboard';
 
 function App() {
-  const checkAuth = useAuthStore((state) => state.checkAuth);
-
-  useEffect(() => {
-    checkAuth();
-  }, [checkAuth]);
-
   return (
-    <Router>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Header />
       <ToastContainer 
         position="top-right"

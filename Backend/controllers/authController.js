@@ -27,10 +27,11 @@ export const login = async (req, res) => {
             return res.status(401).send('Invalid password');
         }
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        res.cookie('token', token, { httpOnly: true });
-        res.status(200).send('Logged in');
+        res.status(200).json({ token });
     } catch (error) {
         res.status(500).send('Error logging in');
     }
 };
+
+
 
