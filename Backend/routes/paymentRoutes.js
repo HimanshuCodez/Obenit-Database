@@ -3,7 +3,7 @@ import { checkout, paymentVerification, getKey } from '../controllers/paymentCon
 
 const router = express.Router();
 
-router.route('/checkout').post(checkout);
+router.route('/create-order').post(checkout);
 router.route('/payment-verification').post(paymentVerification);
 router.route('/getkey').get(getKey);
 
