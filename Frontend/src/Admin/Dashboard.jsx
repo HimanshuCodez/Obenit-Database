@@ -5,6 +5,7 @@ import Overview from './components/Overview';
 import SupportQueries from './components/SupportQueries';
 import UserManagement from './components/UserManagement';
 import DatabaseAccess from './components/DatabaseAccess';
+import Domain from './Components/Domain';
 
 const ObenitAdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -54,6 +55,8 @@ const ObenitAdminDashboard = () => {
         return <UserManagement users={users} toggleUserStatus={toggleUserStatus} />;
       case 'database': 
         return <DatabaseAccess dbAccess={dbAccess} />;
+      case 'domain': 
+        return <Domain />;
       default: 
         return <Overview stats={stats} supportQueries={supportQueries} dbAccess={dbAccess} />;
     }
