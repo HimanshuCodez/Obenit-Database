@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
 
-import Overview from '../components/Overview';
-import SupportQueries from '../components/SupportQueries';
-import UserManagement from '../components/UserManagement';
-import DatabaseAccess from '../components/DatabaseAccess';
-import Domain from '../Components/Domain';
-import Header from '../components/Header';
+import Overview from "./Components/Overview"
+import SupportQueries from "./Components/SupportQueries"
+import UserManagement from "./Components/UserManagement"
+import DatabaseAccess from "./Components/DatabaseAccess"
+import Domain from "./Components/Domain"
+import Header from "./Components/Header"
+import Sidebar from "./Components/Sidebar"
 
 const ObenitAdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
