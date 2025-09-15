@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
+
 import Sidebar from './components/Sidebar';
 import Overview from './components/Overview';
 import SupportQueries from './components/SupportQueries';
 import UserManagement from './components/UserManagement';
 import DatabaseAccess from './components/DatabaseAccess';
 import Domain from './Components/Domain';
+import Header from '../components/Header';
 
 const ObenitAdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -64,7 +65,7 @@ const ObenitAdminDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
-      <Header />
+      <Header/>
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
           <Sidebar 
