@@ -23,11 +23,11 @@ export default function Pay() {
 
   const handlePayment = async () => {
     try {
-      const { data: { key } } = await axios.get("http://localhost:5000/api/getkey");
+      const { data: { key } } = await axios.get("https://obenit-database.onrender.com/api/getkey");
       
       const amountInPaise = totalAmount * 100;
 
-      const { data: { order } } = await axios.post("http://localhost:5000/api/payment/create-order", {
+      const { data: { order } } = await axios.post("https://obenit-database.onrender.com/api/payment/create-order", {
         amount: amountInPaise,
         currency: "INR",
       });
@@ -41,19 +41,7 @@ export default function Pay() {
         image: "https://example.com/your_logo.jpg",
         order_id: order.id,
         handler: function (response) {
-          axios.post("http://localhost:5000/api/payment/payment-verification", {
-            razorpay_order_id: response.razorpay_order_id,
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_signature: response.razorpay_signature,
-          }).then(res => {
-            if(res.data.success){
-                navigate("/success");
-            } else {
-                navigate("/failure");
-            }
-          }).catch(err => {
-            navigate("/failure");
-          })
+          navigate("/success");
         },
         prefill: {
           name: "John Doe",

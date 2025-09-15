@@ -46,7 +46,7 @@ const Header = () => {
             className="flex items-center font-bold text-xl text-blue-700"
           >
             <Database className="w-7 h-7 mr-2 text-blue-600" />
-            Obenit Database
+            Obenit
           </Link>
         </motion.div>
 

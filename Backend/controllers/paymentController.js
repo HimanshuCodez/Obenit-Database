@@ -11,8 +11,7 @@ export const checkout = async (req, res) => {
 
     const options = {
       amount: Number(req.body.amount),
-      currency: req.body.currency,
-      receipt: crypto.randomBytes(10).toString('hex'),
+      currency: "INR",
     };
 
     const order = await instance.orders.create(options);
@@ -61,8 +60,28 @@ export const paymentVerification = async (req, res) => {
   }
 };
 
-export const getKey = (req, res) => {
-  res.status(200).json({
-    key: process.env.RAZORPAY_KEY_ID,
-  });
+export const paymentWebhook = async (req, res) => {
+  const secret = process.env.RAZORPAY_WEBHOOK_SECRET;
+  const signature = req.headers['x-razorpay-signature'];
+  const body = req.body;
+
+  const expectedSignature = crypto
+    .createHmac('sha256', secret)
+    .update(JSON.stringify(body))
+    .digest('hex');
+
+  if (expectedSignature === signature) {
+    const { event, payload } = body;
+    if (event === 'payment.captured') {
+      const { order_id, id, signature } = payload.payment.entity;
+      await Payment.create({
+        razorpay_order_id: order_id,
+        razorpay_payment_id: id,
+        razorpay_signature: signature,
+      });
+    }
+    res.status(200).json({ status: 'ok' });
+  } else {
+    res.status(400).json({ status: 'error' });
+  }
 };

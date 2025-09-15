@@ -20,7 +20,7 @@ app.use('/api/payment', paymentRoutes);
 
 app.get("/api/getkey", (req, res) => res.status(200).json({ key: process.env.RAZORPAY_KEY_ID }));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
