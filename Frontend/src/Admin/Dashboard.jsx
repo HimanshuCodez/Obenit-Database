@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-import Sidebar from './components/Sidebar';
-import Overview from './components/Overview';
-import SupportQueries from './components/SupportQueries';
-import UserManagement from './components/UserManagement';
-import DatabaseAccess from './components/DatabaseAccess';
-import Domain from './Components/Domain';
+
+import Overview from '../components/Overview';
+import SupportQueries from '../components/SupportQueries';
+import UserManagement from '../components/UserManagement';
+import DatabaseAccess from '../components/DatabaseAccess';
+import Domain from '../Components/Domain';
 import Header from '../components/Header';
 
 const ObenitAdminDashboard = () => {
@@ -68,7 +68,7 @@ const ObenitAdminDashboard = () => {
       <Header/>
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
-          <Sidebar 
+          <Sidebar
             activeTab={activeTab} 
             setActiveTab={setActiveTab} 
             pendingSupportCount={stats.pendingSupport}
