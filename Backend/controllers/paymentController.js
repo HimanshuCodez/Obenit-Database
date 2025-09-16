@@ -34,10 +34,14 @@ export const paymentVerification = async (req, res) => {
 
   const body = razorpay_order_id + "|" + razorpay_payment_id;
 
+  console.log("Signature Received: ", razorpay_signature);
+
   const expectedSignature = crypto
     .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
     .update(body.toString())
     .digest("hex");
+
+  console.log("Signature Generated: ", expectedSignature);
 
   const isAuthentic = expectedSignature === razorpay_signature;
 
