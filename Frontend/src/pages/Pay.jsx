@@ -38,7 +38,7 @@ export default function Pay() {
         key,
         amount: order.amount,
         currency: "INR",
-        name: "Essence Database",
+        name: "Obenit",
         description: `Payment for ${plan.name}`,
         image: "https://example.com/your_logo.jpg",
         order_id: order.id,
