@@ -11,6 +11,22 @@ const useAuthStore = create((set) => ({
     const token = localStorage.getItem('token');
     if (token) {
       set({ isAuthenticated: true });
+      useAuthStore.getState().getMe();
+    }
+  },
+
+  getMe: async () => {
+    try {
+      const response = await api.get('/auth/me', {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+      if (response.data) {
+        set({ user: response.data });
+      }
+    } catch (error) {
+      console.error('Error fetching user', error);
     }
   },
 
@@ -35,6 +51,7 @@ const useAuthStore = create((set) => ({
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
         set({ loading: false, isAuthenticated: true });
+        useAuthStore.getState().getMe();
         return true;
       }
     } catch (error) {

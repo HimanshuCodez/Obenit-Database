@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import useAuthStore from '../store/authStore';
 
 export default function Pay() {
   const location = useLocation();
@@ -9,6 +10,7 @@ export default function Pay() {
   const [hasDomain, setHasDomain] = useState('yes');
   const [totalAmount, setTotalAmount] = useState(0);
   const [domainName, setDomainName] = useState('');
+  const { user } = useAuthStore();
 
   useEffect(() => {
     if (plan) {
@@ -44,9 +46,9 @@ export default function Pay() {
           navigate("/success");
         },
         prefill: {
-          name: "John Doe",
-          email: "john.doe@example.com",
-          contact: "9999999999",
+          name: user?.username || "",
+          email: user?.email || "",
+          contact: user?.contact || "",
         },
         notes: {
           address: "Razorpay Corporate Office",
