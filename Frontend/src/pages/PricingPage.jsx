@@ -12,8 +12,8 @@ export default function Pricing() {
     {
       name: "KVM Stater",
       discount: "30% OFF",
-      price: "₹5",
-      renew: "Renews at ₹739.00/mo for 2 years. Cancel anytime.",
+      price: "₹1,850",
+      renew: "Renews at ₹739.00b/mo for 2 years. Cancel anytime.",
       features: ["1 vCPU core", "1 GB RAM", "10 GB NVMe disk", "2 TB bandwidth"],
     },
     {
