@@ -2,7 +2,7 @@ import GithubRepo from '../models/GithubRepo.js';
 
 export const saveRepoInfo = async (req, res) => {
     const { githubUrl, isPrivate, envVars } = req.body;
-    const userId = req.user.id;
+    const userId = req.user.userId;
 
     try {
         const newRepo = new GithubRepo({
