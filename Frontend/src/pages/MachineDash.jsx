@@ -1,10 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import useAuthStore from '../store/authStore';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, Cell } from 'recharts';
-import { Cpu, MemoryStick, HardDrive } from 'lucide-react';
+import { Cpu, MemoryStick, HardDrive, Server, Wifi, Globe } from 'lucide-react';
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
+const ProgressBar = ({ value, color }) => (
+  <div className="w-full bg-gray-700 rounded-full h-2.5">
+    <div className={`${color} h-2.5 rounded-full`} style={{ width: `${value}%` }}></div>
+  </div>
+);
+
+const InfoField = ({ icon, label, value }) => (
+  <div className="flex items-center justify-between p-4 bg-gray-800 rounded-lg">
+    <div className="flex items-center">
+      {icon}
+      <span className="ml-4 text-gray-300">{label}</span>
+    </div>
+    <span className="font-mono text-green-400">{value}</span>
+  </div>
+);
 
 const MachineDash = () => {
   const [machineData, setMachineData] = useState(null);
@@ -31,12 +44,6 @@ const MachineDash = () => {
     }
   }, [token]);
 
-  const data = [
-    { name: 'CPU', usage: machineData?.cpuUsage, icon: <Cpu className="w-8 h-8 text-blue-400" /> },
-    { name: 'Memory', usage: machineData?.memoryUsage, icon: <MemoryStick className="w-8 h-8 text-green-400" /> },
-    { name: 'Storage', usage: machineData?.storageUsage, icon: <HardDrive className="w-8 h-8 text-yellow-400" /> },
-  ];
-
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center text-white">
@@ -46,40 +53,59 @@ const MachineDash = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-8">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Machine Dashboard</h1>
-        <p className="text-center text-gray-400 mb-12">Real-time resource monitoring</p>
+    <div className="min-h-screen bg-gray-900 text-white p-8 font-sans">
+      <div className="max-w-4xl mx-auto">
+        <header className="mb-12">
+          <h1 className="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Machine Dashboard</h1>
+          <p className="text-center text-gray-400 mt-2">Welcome to your server management panel.</p>
+        </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {data.map((item, index) => (
-            <div key={item.name} className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 hover:border-blue-500 transition-all duration-300">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  {item.icon}
-                  <h2 className="text-2xl font-semibold ml-4">{item.name}</h2>
+        <div className="bg-gray-800 rounded-xl shadow-2xl overflow-hidden border border-gray-700">
+          <div className="p-8">
+            <h2 className="text-2xl font-semibold mb-6 text-gray-100">System Status</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <InfoField icon={<Server className="w-6 h-6 text-blue-400" />} label="Status" value={<span className="text-green-400 font-bold">Running</span>} />
+              <InfoField icon={<Globe className="w-6 h-6 text-green-400" />} label="IP Address" value="192.168.1.101" />
+              <InfoField icon={<Wifi className="w-6 h-6 text-yellow-400" />} label="Uptime" value="99.98%" />
+              <InfoField icon={<Globe className="w-6 h-6 text-purple-400" />} label="Datacenter" value="Bangalore, IN" />
+            </div>
+          </div>
+
+          <div className="p-8 border-t border-gray-700">
+            <h2 className="text-2xl font-semibold mb-6 text-gray-100">Resource Usage</h2>
+            <div className="space-y-8">
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center">
+                    <Cpu className="w-6 h-6 text-blue-400" />
+                    <span className="ml-3 text-lg">CPU Usage</span>
+                  </div>
+                  <span className="font-mono text-blue-400">{machineData?.cpuUsage}%</span>
                 </div>
-                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">{item.usage}%</div>
+                <ProgressBar value={machineData?.cpuUsage} color="bg-blue-500" />
+              </div>
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center">
+                    <MemoryStick className="w-6 h-6 text-green-400" />
+                    <span className="ml-3 text-lg">Memory Usage</span>
+                  </div>
+                  <span className="font-mono text-green-400">{machineData?.memoryUsage}%</span>
+                </div>
+                <ProgressBar value={machineData?.memoryUsage} color="bg-green-500" />
+              </div>
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center">
+                    <HardDrive className="w-6 h-6 text-yellow-400" />
+                    <span className="ml-3 text-lg">Storage Usage</span>
+                  </div>
+                  <span className="font-mono text-yellow-400">{machineData?.storageUsage}%</span>
+                </div>
+                <ProgressBar value={machineData?.storageUsage} color="bg-yellow-500" />
               </div>
             </div>
-          ))}
-        </div>
-
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
-          <h2 className="text-2xl font-semibold mb-4 text-center">Resource Usage Overview</h2>
-          <ResponsiveContainer width="100%" height={400}>
-            <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-              <XAxis dataKey="name" stroke="#9CA3AF" />
-              <YAxis stroke="#9CA3AF" />
-              <Tooltip contentStyle={{ backgroundColor: '#1F2937', border: '1px solid #4B5563' }} />
-              <Legend />
-              <Bar dataKey="usage" fill="#8884d8">
-                {data.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
+          </div>
         </div>
       </div>
     </div>
