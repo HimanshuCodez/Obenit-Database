@@ -1,5 +1,5 @@
 import React from 'react';
-import { Activity, MessageSquare, Users, Database, Globe } from 'lucide-react';
+import { Activity, MessageSquare, Users, Database, Globe, Github } from 'lucide-react';
 
 const Sidebar = ({ activeTab, setActiveTab, pendingSupportCount }) => {
   const navItems = [
@@ -8,6 +8,7 @@ const Sidebar = ({ activeTab, setActiveTab, pendingSupportCount }) => {
     { id: 'users', label: 'Users', icon: Users },
     { id: 'database', label: 'Database Access', icon: Database },
     { id: 'domain', label: 'Domains', icon: Globe },
+    { id: 'github', label: 'GitHub', icon: Github },
   ];
 
   return (

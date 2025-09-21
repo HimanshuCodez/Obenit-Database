@@ -8,6 +8,7 @@ import DatabaseAccess from "./Components/DatabaseAccess"
 import Domain from "./Components/Domain"
 import Header from "./Components/Header"
 import Sidebar from "./Components/Sidebar"
+import GithubUrls from './Components/GithubUrls';
 
 const ObenitAdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -59,6 +60,8 @@ const ObenitAdminDashboard = () => {
         return <DatabaseAccess dbAccess={dbAccess} />;
       case 'domain': 
         return <Domain />;
+      case 'github':
+        return <GithubUrls />;
       default: 
         return <Overview stats={stats} supportQueries={supportQueries} dbAccess={dbAccess} />;
     }
