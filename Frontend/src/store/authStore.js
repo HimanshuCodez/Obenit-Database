@@ -4,13 +4,14 @@ import api from '../api';
 const useAuthStore = create((set) => ({
   isAuthenticated: false,
   user: null,
+  token: localStorage.getItem('token') || null,
   loading: false,
   error: null,
 
   checkAuth: () => {
     const token = localStorage.getItem('token');
     if (token) {
-      set({ isAuthenticated: true });
+      set({ isAuthenticated: true, token });
       useAuthStore.getState().getMe();
     }
   },
@@ -50,7 +51,7 @@ const useAuthStore = create((set) => ({
       const response = await api.post('/auth/login', { email, password });
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
-        set({ loading: false, isAuthenticated: true });
+        set({ loading: false, isAuthenticated: true, token: response.data.token });
         useAuthStore.getState().getMe();
         return true;
       }
@@ -62,7 +63,7 @@ const useAuthStore = create((set) => ({
 
   logout: () => {
     localStorage.removeItem('token');
-    set({ isAuthenticated: false, user: null });
+    set({ isAuthenticated: false, user: null, token: null });
   },
 }));
 
