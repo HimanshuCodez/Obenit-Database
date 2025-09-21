@@ -1,6 +1,7 @@
 import Razorpay from 'razorpay';
 import crypto from 'crypto';
 import { Payment } from '../models/Payment.js';
+import User from '../models/User.js';
 
 export const checkout = async (req, res) => {
   try {
@@ -30,7 +31,8 @@ export const checkout = async (req, res) => {
 };
 
 export const paymentVerification = async (req, res) => {
-  const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
+  const { razorpay_order_id, razorpay_payment_id, razorpay_signature, domainName } = req.body;
+  const userId = req.user._id;
 
   const body = razorpay_order_id + "|" + razorpay_payment_id;
 
@@ -50,7 +52,12 @@ export const paymentVerification = async (req, res) => {
       razorpay_order_id,
       razorpay_payment_id,
       razorpay_signature,
+      user: userId,
     });
+
+    if (domainName) {
+      await User.findByIdAndUpdate(userId, { domain: domainName });
+    }
 
     res.status(200).json({
       success: true,

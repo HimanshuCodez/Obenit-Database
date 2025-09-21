@@ -42,8 +42,23 @@ export default function Pay() {
         description: `Payment for ${plan.name}`,
         image: "https://example.com/your_logo.jpg",
         order_id: order.id,
-        handler: function (response) {
-          navigate("/success");
+        handler: async function (response) {
+          try {
+            await axios.post("https://obenit-database.onrender.com/api/payment/payment-verification", {
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              domainName: hasDomain === 'yes' ? domainName : null,
+            }, {
+              headers: {
+                Authorization: `Bearer ${useAuthStore.getState().token}`,
+              }
+            });
+            navigate("/success");
+          } catch (error) {
+            console.error("Payment Verification Error:", error);
+            navigate("/failure");
+          }
         },
         prefill: {
           name: user?.username || "",

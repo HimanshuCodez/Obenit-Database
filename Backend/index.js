@@ -8,6 +8,7 @@ import cors from 'cors';
 import authRoutes from './routes/auth.js';
 import paymentRoutes from './routes/paymentRoutes.js';
 import githubRoutes from './routes/githubRoutes.js';
+import machineRoutes from './routes/machineRoutes.js';
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(cookieParser());
 app.use('/auth', authRoutes);
 app.use('/api/payment', paymentRoutes);
 app.use('/api/github', githubRoutes);
+app.use('/api/machine', machineRoutes);
 
 app.get("/api/getkey", (req, res) => res.status(200).json({ key: process.env.RAZORPAY_KEY_ID }));
 

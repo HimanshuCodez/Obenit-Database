@@ -16,6 +16,7 @@ import Success from './pages/Success';
 import Failure from './pages/Failure';
 import ObenitAdminDashboard from './Admin/Dashboard';
 import Content from './pages/Content';
+import MachineDash from './pages/MachineDash';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route path="/pay" element={<Pay />} />
         <Route path="/success" element={<Success />} />
         <Route path="/content" element={<Content />} />
+        <Route path="/machine-dash" element={<MachineDash />} />
         <Route path="/failure" element={<Failure />} />
         <Route path="/Admin" element={<ObenitAdminDashboard />} />
       </Routes>

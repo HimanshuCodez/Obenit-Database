@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import useAuthStore from '../store/authStore';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 export default function Content() {
   const [githubUrl, setGithubUrl] = useState('');
   const [isPrivate, setIsPrivate] = useState(false);
   const [envVars, setEnvVars] = useState([{ key: '', value: '' }]);
   const { user } = useAuthStore();
+  const navigate = useNavigate();
 
   const handleAddEnvVar = () => {
     setEnvVars([...envVars, { key: '', value: '' }]);
@@ -46,11 +49,11 @@ export default function Content() {
           },
         }
       );
-      // Optionally, redirect or show a success message
-      alert('Deployment information saved successfully!');
+      toast.success('Deployment information saved successfully!');
+      navigate('/machine-dash');
     } catch (error) {
       console.error('Error saving deployment information:', error);
-      alert('Failed to save deployment information.');
+      toast.error('Failed to save deployment information.');
     }
   };
 
