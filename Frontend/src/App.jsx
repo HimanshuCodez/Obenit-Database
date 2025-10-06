@@ -17,6 +17,7 @@ import Failure from './pages/Failure';
 import ObenitAdminDashboard from './Admin/Dashboard';
 import Content from './pages/Content';
 import MachineDash from './pages/MachineDash';
+import UnderMaintenance from './pages/Profile';
 
 function App() {
   return (
@@ -44,12 +45,13 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/pay" element={<Pay />} />
-        <Route path="/Profile" element={<Pay />} />
-        <Route path="/Settings" element={<Pay />} />
+        <Route path="/Profile" element={<UnderMaintenance />} />
+        <Route path="/Settings" element={<UnderMaintenance/>} />
         <Route path="/success" element={<Success />} />
         <Route path="/content" element={<Content />} />
         <Route path="/machine-dash" element={<MachineDash />} />
         <Route path="/failure" element={<Failure />} />
+        <Route path="/Plany" element={<Failure />} />
         <Route path="/Admin" element={<ObenitAdminDashboard />} />
       </Routes>
     </Router>
