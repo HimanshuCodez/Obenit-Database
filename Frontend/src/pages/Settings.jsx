@@ -44,7 +44,7 @@ const UnderMaintenance = () => {
         className="absolute bottom-10 flex items-center gap-2 text-gray-400"
       >
         <Clock className="w-4 h-4" />
-        <p className="text-sm">Estimated downtime: Few minutes</p>
+        <p className="text-sm">Estimated downtime: Soon</p>
       </motion.div>
     </div>
   );

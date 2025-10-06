@@ -8,7 +8,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
   const dropdownRef = useRef(null);
-  const { isAuthenticated, logout, loading } = useAuthStore();
+  const { isAuthenticated, logout, loading, user } = useAuthStore();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -23,14 +23,19 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const purchasedEmails = ['febeulfashion@gmail.com', 'himanshugaur055@gmail.com'];
+
   // Define your nav items with links
-  const navItems = [
+  let navItems = [
     { name: "Pricing", path: "/pricing" },
     // { name: "Resources", path: "/resources" },
     { name: "Support", path: "/contact" },
-    { name: "Your Plan", path: "/Plany" },
     { name: "About", path: "/about" },
   ];
+
+  if (user && purchasedEmails.includes(user.email)) {
+    navItems.splice(3, 0, { name: "Your Plan", path: "/Plany" });
+  }
 
   const handleLogout = () => {
     logout();
