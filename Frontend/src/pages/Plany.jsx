@@ -10,7 +10,7 @@ const Plany = () => {
     name: 'KVM Stater',
     discount: '30% OFF',
     price: '₹1,850',
-    renew: 'Renews at ₹739.00/mo for 2 years. Cancel anytime.',
+    renew: 'Renews at ₹1,850 for 1 year. Cancel anytime.',
     features: ['1 vCPU core', '1 GB RAM', '10 GB NVMe disk', '2 TB bandwidth'],
   };
 
@@ -30,7 +30,7 @@ const Plany = () => {
           </ul>
         </div>
         <div style={{ marginTop: '2rem', padding: '1rem', backgroundColor: '#e8f5e9', borderRadius: '8px' }}>
-          <p>Your hosting URL is: <a href="https://obenit@hosting42ihrkejfkejfe" target="_blank" rel="noopener noreferrer">https://obenit@hosting42ihrkejfkejfe</a></p>
+          <p>Your hosting URL is: <a href="https://obenit@hosting427e8f5e9" target="_blank" rel="noopener noreferrer">https://obenit@hosting42ihrkejfkejfe</a></p>
         </div>
       </div>
     );
