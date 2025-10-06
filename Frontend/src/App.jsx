@@ -44,6 +44,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/pay" element={<Pay />} />
+        <Route path="/Profile" element={<Pay />} />
+        <Route path="/Settings" element={<Pay />} />
         <Route path="/success" element={<Success />} />
         <Route path="/content" element={<Content />} />
         <Route path="/machine-dash" element={<MachineDash />} />
