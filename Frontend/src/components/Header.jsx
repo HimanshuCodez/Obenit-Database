@@ -107,13 +107,13 @@ const Header = () => {
                     className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border py-2 z-50"
                   >
                     <Link
-                      to="/profile"
+                      to="/Profile"
                       className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100"
                     >
                       <User className="w-4 h-4" /> Profile
                     </Link>
                     <Link
-                      to="/settings"
+                      to="/Settings"
                       className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100"
                     >
                       <Settings className="w-4 h-4" /> Settings
